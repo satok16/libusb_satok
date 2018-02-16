@@ -20,7 +20,7 @@
  * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA
  */
 
-#include "config.h"
+#include <config.h>
 
 #include <assert.h>
 #include <ctype.h>
@@ -291,6 +291,7 @@ int linux_udev_scan_devices(struct libusb_context *ctx)
 	udev_enumerate_scan_devices(enumerator);
 	devices = udev_enumerate_get_list_entry(enumerator);
 
+	entry = NULL;
 	udev_list_entry_foreach(entry, devices) {
 		const char *path = udev_list_entry_get_name(entry);
 		uint8_t busnum = 0, devaddr = 0;

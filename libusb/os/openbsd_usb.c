@@ -16,7 +16,7 @@
  * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA
  */
 
-#include "config.h"
+#include <config.h>
 
 #include <sys/time.h>
 #include <sys/types.h>
@@ -248,7 +248,6 @@ obsd_get_device_list(struct libusb_context * ctx,
 int
 obsd_open(struct libusb_device_handle *handle)
 {
-	struct handle_priv *hpriv = (struct handle_priv *)handle->os_priv;
 	struct device_priv *dpriv = (struct device_priv *)handle->dev->os_priv;
 	char devnode[16];
 
@@ -272,7 +271,6 @@ obsd_open(struct libusb_device_handle *handle)
 void
 obsd_close(struct libusb_device_handle *handle)
 {
-	struct handle_priv *hpriv = (struct handle_priv *)handle->os_priv;
 	struct device_priv *dpriv = (struct device_priv *)handle->dev->os_priv;
 
 	if (dpriv->devname) {

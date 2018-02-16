@@ -16,7 +16,7 @@
  * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA
  */
 
-#include "config.h"
+#include <config.h>
 
 #include <sys/time.h>
 #include <sys/types.h>
@@ -214,7 +214,6 @@ error:
 int
 netbsd_open(struct libusb_device_handle *handle)
 {
-	struct handle_priv *hpriv = (struct handle_priv *)handle->os_priv;
 	struct device_priv *dpriv = (struct device_priv *)handle->dev->os_priv;
 
 	dpriv->fd = open(dpriv->devnode, O_RDWR);
@@ -232,7 +231,6 @@ netbsd_open(struct libusb_device_handle *handle)
 void
 netbsd_close(struct libusb_device_handle *handle)
 {
-	struct handle_priv *hpriv = (struct handle_priv *)handle->os_priv;
 	struct device_priv *dpriv = (struct device_priv *)handle->dev->os_priv;
 
 	usbi_dbg("close: fd %d", dpriv->fd);
