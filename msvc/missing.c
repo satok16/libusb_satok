@@ -19,7 +19,7 @@
 
 #include "missing.h"
 
-#include <config.h>
+#include "config.h"
 #include <libusbi.h>
 
 #include <windows.h>

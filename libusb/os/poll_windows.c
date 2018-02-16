@@ -34,7 +34,7 @@
  * with a fake pipe. The read/write functions are only meant to be used in that
  * context.
  */
-#include <config.h>
+#include "config.h"
 
 #include <assert.h>
 #include <errno.h>
